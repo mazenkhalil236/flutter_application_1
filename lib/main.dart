@@ -205,31 +205,29 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     required String subtitle,
     bool isSplash = false,
   }) {
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.white,
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (isSplash) const Spacer(),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
-            image,
-            const SizedBox(height: 20),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              subtitle,
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.center,
-            ),
-            if (isSplash) const Spacer(),
-          ],
-        ),
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (isSplash) SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+          image,
+          const SizedBox(height: 20),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.headlineMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 10),
+          Text(
+            subtitle,
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          if (isSplash) SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+        ],
       ),
     );
   }
@@ -251,13 +249,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('PharmaFlow')),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Welcome to PharmaFlow!'),
-            const SizedBox(height: 20),
-     
+            Text('Welcome to PharmaFlow!'),
+            SizedBox(height: 20),
+            // Add other widgets as needed here
           ],
         ),
       ),

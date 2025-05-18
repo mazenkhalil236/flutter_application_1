@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmaflow/pages/forget.dart';
+import 'package:pharmaflow/pages/main_screen.dart';
 import 'package:pharmaflow/pages/phonever.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -83,10 +84,16 @@ class AuthScreen extends StatelessWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => const MainScreen()),
-                            );
+                            print('Log In pressed, navigating to WelcomePage'); // Debug
+                            try {
+                              Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(builder: (context) =>  const MainScreen()),
+                                (route) => false, // Clear the navigation stack
+                              );
+                            } catch (e) {
+                              print('Navigation error: $e'); // Log the error
+                            }
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
@@ -269,11 +276,19 @@ class AuthScreen extends StatelessWidget {
   }
 }
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome'),
+      ),
+      body: const Center(
+        child: Text('Welcome to PharmaFlow!'),
+      ),
+    );
   }
 }
+

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pharmaflow/pages/auth.dart';
+import 'package:pharmaflow/pages/main_screen.dart';
 
 class PhoneVerificationScreen extends StatelessWidget {
   final TextEditingController _phoneController = TextEditingController();
+
+  PhoneVerificationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
